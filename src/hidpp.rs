@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+// Copyright (C) 2026 orthory
+
 //! HID++ transport over hidapi — framing, request/reply, ping, feature discovery.
 //!
 //! Mirrors Solaar's `logitech_receiver/base.py`. A Logitech receiver (or a

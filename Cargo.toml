@@ -2,7 +2,8 @@
 name = "lowtech"
 version = "0.1.0"
 edition = "2021"
-description = "Minimal Rust port of Solaar: query Logitech HID++ devices, DPI, button presses, and onboard-profile button remapping. No UI."
+license = "GPL-2.0-or-later"
+description = "Minimal port of Solaar's core: query Logitech HID++ devices, DPI, button presses, and onboard-profile button remapping. No UI."
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }

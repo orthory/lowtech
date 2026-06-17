@@ -1,6 +1,6 @@
 # lowtech
 
-A minimal Rust port of the useful core of [Solaar](https://github.com/pwr-Solaar/Solaar)
+A minimal port of the useful core of [Solaar](https://github.com/pwr-Solaar/Solaar)
 for Logitech HID++ devices — **no UI**, just the things you actually want from a
 terminal: see your devices, read DPI/battery, watch button presses, and
 **reassign mouse buttons**. Single self-contained binary, system libraries
@@ -257,4 +257,8 @@ Built on the shoulders of [Solaar](https://github.com/pwr-Solaar/Solaar)
 (GPL-2.0-or-later). The HID++ feature ids, control ids, and onboard-profile /
 button-spec encodings used here were derived from Solaar's implementation — this
 project would not exist without it. `lowtech` is an independent, deliberately
-minimal reimplementation in Rust; any mistakes are mine (I mean Claude's).
+minimal reimplementation; any mistakes are mine (I mean Claude's).
+
+## License
+
+GPL-2.0-or-later — see [LICENSE](LICENSE). The HID++ feature/control ids and onboard-profile / button-spec encodings are derived from [Solaar](https://github.com/pwr-Solaar/Solaar) (GPL-2.0-or-later), so lowtech carries the same license.

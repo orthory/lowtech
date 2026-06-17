@@ -1,4 +1,7 @@
-//! lowtech — a minimal Rust port of the useful parts of Solaar (no UI).
+// SPDX-License-Identifier: GPL-2.0-or-later
+// Copyright (C) 2026 orthory
+
+//! lowtech — a minimal port of the useful parts of Solaar (no UI).
 //!
 //! Talks HID++ to Logitech devices over the receiver's vendor HID interface.
 //! Cross-platform via the `hidapi` crate (statically linked): macOS (IOKit) and
@@ -13,7 +16,7 @@ use hidapi::HidApi;
 use hidpp::{Device, HIDPP_USAGE_PAGE, VENDOR_LOGITECH};
 use std::ffi::CString;
 
-/// Minimal Logitech HID++ tool (Rust port of Solaar's core) — no UI.
+/// Minimal Logitech HID++ tool — a port of Solaar's core. No UI.
 #[derive(Parser)]
 #[command(name = "lowtech", version, about, long_about = None)]
 struct Cli {

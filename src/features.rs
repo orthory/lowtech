@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+// Copyright (C) 2026 orthory
+
 //! Human-readable names + a few higher-level feature wrappers (DPI).
 
 use crate::hidpp::{Device, Error, Result, FEAT_ADJUSTABLE_DPI, FEAT_EXTENDED_DPI};

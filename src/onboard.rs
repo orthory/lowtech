@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+// Copyright (C) 2026 orthory
+
 //! Onboard-profile (0x8100) button remapping.
 //!
 //! The PRO X SUPERLIGHT 2 (and most Logitech G mice) have no 0x1B04
