@@ -1,0 +1,18 @@
+# lowtech — allow the local (logged-in) user to access Logitech HID++ devices
+# without root. This is the udev rule Solaar's `make install_udev` installs;
+# copy it to /etc/udev/rules.d/ and reload:
+#
+#   sudo cp linux/42-logitech-hidpp.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger
+#
+# then replug the receiver.
+
+ACTION!="add|change", GOTO="lowtech_end"
+
+# USB-connected Logitech devices and receivers (hidraw node under a 046d device).
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", TAG+="uaccess"
+
+# Bluetooth-connected Logitech HID++ devices (vendor id appears in the HID name).
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", KERNELS=="*046D:*", TAG+="uaccess"
+
+LABEL="lowtech_end"

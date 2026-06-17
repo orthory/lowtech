@@ -1,0 +1,27 @@
+[package]
+name = "lowtech"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal Rust port of Solaar: query Logitech HID++ devices, DPI, button presses, and onboard-profile button remapping. No UI."
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+
+# hidapi backend differs per OS; both statically compile the C hidapi into the
+# binary (no libhidapi.* runtime dependency).
+#
+# macOS: bundled hidapi + IOKit; `macos-shared-device` opens non-exclusively
+#        (mirrors Solaar's hid_darwin_set_open_exclusive(0)). Only Apple system
+#        frameworks remain dynamically linked (they cannot be static on macOS).
+[target.'cfg(target_os = "macos")'.dependencies]
+hidapi = { version = "2", default-features = false, features = ["macos-shared-device"] }
+
+# Linux: hidraw backend (what Solaar uses), hidapi compiled in statically.
+#        libudev remains a dynamic system dependency for enumeration; for a
+#        fully-static binary build against musl with a static udev/libusb.
+[target.'cfg(target_os = "linux")'.dependencies]
+hidapi = { version = "2", default-features = false, features = ["linux-static-hidraw"] }
+
+[profile.release]
+lto = true
+strip = true
