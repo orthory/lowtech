@@ -10,6 +10,19 @@ Built and verified against a **Logitech PRO X SUPERLIGHT 2** on a Logitech Bolt
 receiver, on macOS (Apple Silicon). Also builds on **Linux** (hidraw backend) —
 see [Build](#build).
 
+## Features
+
+- **Read everything** — device name, HID++ version, feature list, battery, DPI.
+- **Watch button presses** live in the terminal.
+- **Remap buttons into the mouse's onboard memory** — persists across reboots
+  and machines with **no driver or daemon running**.
+- **Map to any standard HID action**, not just a vendor app's presets: mouse
+  buttons, keyboard keys + modifiers, or consumer/media codes (incl. browser
+  Back/Forward).
+- **Safe writes** — CRC-validated, original backed up, read-back verified, and
+  reversible (`restore`).
+- **One small static binary**, no UI. macOS (IOKit) and Linux (hidraw).
+
 ## A bit of lore
 
 Logitech G HUB just didn't work for me, so I figured I'd port
@@ -170,6 +183,8 @@ cargo build --release
 ./target/release/lowtech list
 ```
 
+Or drive it with the **Makefile**: `make build`, `make install` (via cargo), `make deps` (shows the dynamic-library deps), and on Linux `make install-udev` — the working counterpart to Solaar's broken `make install_udev`. `make help` lists all targets.
+
 ### macOS
 
 The bundled C hidapi is **statically compiled in** — no `libhidapi.dylib`
@@ -242,4 +257,4 @@ Built on the shoulders of [Solaar](https://github.com/pwr-Solaar/Solaar)
 (GPL-2.0-or-later). The HID++ feature ids, control ids, and onboard-profile /
 button-spec encodings used here were derived from Solaar's implementation — this
 project would not exist without it. `lowtech` is an independent, deliberately
-minimal reimplementation in Rust; any mistakes are mine.
+minimal reimplementation in Rust; any mistakes are mine (I mean Claude's).

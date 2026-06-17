@@ -1,0 +1,18 @@
+title: lowtech
+description: >-
+  Minimal, no-UI Rust CLI for Logitech HID++ mice — device info, DPI, live
+  button-press watch, and button remapping written to the mouse's onboard
+  memory. macOS + Linux.
+theme: jekyll-theme-primer
+
+# Publish only the rendered doc; keep source/build files out of the site.
+exclude:
+  - src
+  - tools
+  - linux
+  - target
+  - Cargo.toml
+  - Cargo.lock
+  - Makefile
+  - .gitignore
+  - LICENSE
